@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="../css/vendors/normalize.css" />
+    <link rel="stylesheet" href="../css/destination-styles.css" />
+
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
+  <body>
+    <div class="destination-page">
+      <div class="container">
+        <div class="navbar">
+          <!-- logo -->
+          <img src="../assets/shared/logo.svg" alt="" class="logo" />
+          <!-- ul -->
+          <div class="navbar-ul-wrapper">
+            <ul class="navbar-ul">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link">HOME</a>
+              </li>
+              <li class="nav-item active">
+                <a href="Pages/destination-mars.html" class="nav-link"
+                  >DESTINATION</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">CREW</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">TECHNOLOGY</a>
+              </li>
+            </ul>
+          </div>
+          <!-- nav-btn -->
+          <img
+            src="../assets/shared/icon-hamburger.svg"
+            alt=""
+            class="nav-btn"
+          />
+        </div>
+
+        <div class="destination-hero">
+          <h4 class="pick-your"><span>01 </span>PICK YOUR DESTINATION</h4>
+
+          <div class="planet-outer-wrapper">
+            <div class="col">
+              <div class="planet-pic-wrapper">
+                <img
+                  class="planet-pic"
+                  src="../assets/destination/image-moon.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="planet-info">
+                <ul>
+                  <li class="planet active" data-num="0" data-name="Moon">
+                    MOON
+                  </li>
+                  <li class="planet" data-num="1" data-name="Mars">MARS</li>
+                  <li class="planet" data-num="2" data-name="Europa">EUROPA</li>
+                  <li class="planet" data-num="3" data-name="Titan">TITAN</li>
+                </ul>
+                <h1 class="planet-name">Moon</h1>
+                <p class="subheading-1 planet-description">
+                  See our planet as you’ve never seen it before. A perfect
+                  relaxing trip away to help regain perspective and come back
+                  refreshed. While you’re there, take in some history by
+                  visiting the Luna 2 and Apollo 11 landing sites.
+                </p>
+                <hr />
+                <div class="planet-meta-info">
+                  <div class="planet-dest-wrapper">
+                    <p class="meta-info">AVG. DESTANCE</p>
+                    <p class="destance">384,400 km</p>
+                  </div>
+                  <div class="planet-travel-wrapper">
+                    <p class="meta-info">EST. TRAVEL TIME</p>
+                    <p class="travel-time">3 days</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/vendors/jquery-3.6.0.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

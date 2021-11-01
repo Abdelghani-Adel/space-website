@@ -177,157 +177,144 @@ h5 {
   position: relative;
 }
 
-.home-page {
+.destination-page {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../assets/home/background-home-mobile.jpg");
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
-}
-
-.home-hero {
   color: #ffffff;
+}
+
+.destination-hero {
+  padding-top: 30%;
   text-align: center;
-  padding-top: 35%;
 }
 
-.home-hero h1 {
-  font-size: 80px;
-  margin: 5px 0;
-}
-
-.home-hero h5 {
+.destination-hero .pick-your {
   font-size: 16px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-style: normal;
+  letter-spacing: 2px;
 }
 
-.home-hero .subheading-1 {
-  font-size: 10px;
-  line-height: 30px;
+.destination-hero .pick-your span {
+  color: #d0d6f9;
 }
 
-.home-hero .explore-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 5%;
+.planet-outer-wrapper {
+  margin-top: 20px;
 }
 
-.home-hero .explore {
-  height: 120px;
-  width: 120px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  position: relative;
+.planet-outer-wrapper .planet-pic {
+  width: 170px;
 }
 
-.home-hero .explore h4 {
-  color: #000;
-  position: absolute;
-  font-size: 20px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  margin: 0;
+.planet-info ul {
+  list-style: none;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
 }
 
-.home-hero .explore h4 a {
-  color: #000;
-  text-decoration: none;
+.planet-info ul .planet {
+  font-family: "Barlow Condensed";
+  letter-spacing: 2px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 0;
 }
 
-@media only screen and (min-width: 400px) {
-  .home-hero {
-    color: #ffffff;
-    text-align: center;
-    padding-top: 30%;
-  }
-  .home-hero h1 {
-    font-size: 100px;
-    margin: 20px 0;
-  }
-  .home-hero .subheading-1 {
-    font-size: 16px;
-  }
-  .home-hero .explore-wrapper {
-    margin-top: 20%;
-  }
-  .home-hero .explore {
-    height: 150px;
-    width: 150px;
-  }
+.planet-info ul .planet.active {
+  border-bottom: 3px solid #ffffff;
+}
+
+.planet-info .planet-name {
+  font-family: "Bellefair";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 56px;
+}
+
+.planet-info .planet-description {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+  color: #d0d6f9;
+}
+
+.planet-info .meta-info {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 2px;
+  color: #d0d6f9;
+}
+
+.planet-info .destance,
+.planet-info .travel-time {
+  font-family: "Bellefair";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 32px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
-  .home-page {
-    background-image: url("../assets/home/background-home-tablet.jpg");
-    background-position: center;
+  .destination-page {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
   }
-  .home-hero {
-    max-width: 80%;
-    margin: auto;
+  .destination-hero {
+    padding-top: 20%;
   }
-  .home-hero h1 {
-    font-size: 140px;
-  }
-  .home-hero .subheading-1 {
+  .destination-hero .pick-your {
+    text-align: left;
     font-size: 20px;
-    letter-spacing: 3px;
+    padding-left: 20px;
   }
-  .home-hero .explore-wrapper {
-    margin-top: 25%;
+  .planet-outer-wrapper {
+    padding-top: 5%;
   }
-  .home-hero .explore {
-    width: 240px;
-    height: 240px;
+  .planet-outer-wrapper .planet-pic {
+    width: 300px;
   }
-  .home-hero .explore h4 {
-    font-size: 32px;
+  .planet-info ul .planet {
+    margin: 10px 15px;
   }
-}
-
-@media only screen and (min-width: 992px) {
-  .home-page {
-    background-image: url("../assets/home/background-home-desktop.jpg");
+  .planet-info .planet-name {
+    margin: 20px 0;
   }
-  .home-hero {
+  .planet-info .planet-meta-info {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    text-align: start;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    max-width: unset;
-    padding-top: 20%;
-    padding-left: 50px;
-    padding-right: 50px;
   }
-  .home-hero .col {
-    width: 50%;
-  }
-  .home-hero .home-txt-wrapper {
-    max-width: -webkit-min-content;
-    max-width: -moz-min-content;
-    max-width: min-content;
-  }
-  .home-hero .subheading-1 {
-    letter-spacing: 2px;
-  }
-  .home-hero .explore-wrapper {
-    margin-top: 0;
-  }
-  .home-hero .explore {
-    height: 200px;
-    width: 200px;
-  }
-  .home-hero .explore h4 {
-    font-size: 32px;
+  .planet-info hr {
+    margin: 30px 0;
   }
 }
-/*# sourceMappingURL=home-styles.css.map */
+
+@media only screen and (min-width: 1200px) {
+  .planet-outer-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .planet-picwrapper img {
+    width: 400px;
+    height: 400px;
+  }
+}
+/*# sourceMappingURL=destination-styles.css.map */

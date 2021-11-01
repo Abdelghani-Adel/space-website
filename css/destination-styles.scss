@@ -1,0 +1,155 @@
+@import "mixins";
+@import "typography";
+@import "navbar";
+@import "variables";
+
+.container {
+  max-width: 90%;
+  margin: auto;
+  position: relative;
+}
+.destination-page {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  color: $color3;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+.destination-hero {
+  padding-top: 30%;
+  text-align: center;
+
+  .pick-your {
+    font-size: 16px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-style: normal;
+    letter-spacing: 2px;
+
+    span {
+      color: #d0d6f9;
+    }
+  }
+}
+
+.planet-outer-wrapper {
+  margin-top: 20px;
+  .planet-pic {
+    width: 170px;
+  }
+}
+
+.planet-info {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+    .planet {
+      font-family: "Barlow Condensed";
+      letter-spacing: 2px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 0;
+
+      &.active {
+        border-bottom: 3px solid $color3;
+      }
+    }
+  }
+  .planet-name {
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 56px;
+  }
+
+  .planet-description {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    color: #d0d6f9;
+  }
+
+  .meta-info {
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 2px;
+    color: #d0d6f9;
+  }
+
+  .destance,
+  .travel-time {
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Medium Screens
+@include respond(md) {
+  .destination-page {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
+  }
+  .destination-hero {
+    padding-top: 20%;
+    .pick-your {
+      text-align: left;
+      font-size: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  .planet-outer-wrapper {
+    padding-top: 5%;
+    .planet-pic {
+      width: 300px;
+    }
+  }
+
+  .planet-info {
+    ul .planet {
+      margin: 10px 15px;
+    }
+
+    .planet-name {
+      margin: 20px 0;
+    }
+
+    .planet-meta-info {
+      justify-content: space-evenly;
+      display: flex;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  }
+}
+
+// Large Screens
+@include respond(xl) {
+  .planet-outer-wrapper {
+    display: flex;
+  }
+  .planet-picwrapper {
+    img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+}

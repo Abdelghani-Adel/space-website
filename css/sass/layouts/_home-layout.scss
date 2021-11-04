@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+.home-page {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url("../../assets/home/background-home-mobile.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+.home-hero {
+  color: $color3;
+  text-align: center;
+
+  .home-txt-wrapper {
+    height: 50%;
+  }
+
+  .explore {
+    height: 120px;
+    width: 120px;
+    line-height: 120px;
+    background-color: $color3;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+}
+
+// Extra Small Screens
+@include respond(xs) {
+  .home-hero {
+    text-align: center;
+    .explore {
+      height: 170px;
+      width: 170px;
+    }
+  }
+}
+
+// Medium Screens
+@include respond(md) {
+  .home-page {
+    background-image: url("../../assets/home/background-home-tablet.jpg");
+    background-position: center;
+  }
+}
+
+// Large Screens
+@include respond(lg) {
+  .home-page {
+    background-image: url("../../assets/home/background-home-desktop.jpg");
+  }
+
+  .home-hero {
+    text-align: start;
+    .explore {
+      height: 200px;
+      width: 200px;
+    }
+  }
+}

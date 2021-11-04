@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+
+body {
+  font-family: "Bellefair", serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h5,
+.subheading-1,
+.subheading-2 {
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 2px;
+}
+
+.title-1 {
+  font-size: 4rem;
+}
+
+.color-1 {
+  color: $color1;
+}
+.color-2 {
+  color: $color2;
+}
+.color-3 {
+  color: $color3;
+}
+
+a {
+  text-decoration: none;
+}

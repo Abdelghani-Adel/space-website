@@ -11,7 +11,8 @@
       href="./assets/favicon-32x32.png"
     />
     <link rel="stylesheet" href="css/vendors/normalize.css" />
-    <link rel="stylesheet" href="css/home-styles.css" />
+    <link rel="stylesheet" href="css/vendors/bootstrap.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
     <title>Frontend Mentor | Space tourism website</title>
   </head>
   <body>
@@ -43,30 +44,29 @@
           <img src="assets/shared/icon-hamburger.svg" alt="" class="nav-btn" />
         </div>
 
-        <div class="home-hero">
-          <div class="col">
-            <div class="home-txt-wrapper">
-              <h5>SO, YOU WANT TO TRAVEL TO</h5>
-              <h1>SPACE</h1>
-              <p class="subheading-1">
-                Let’s face it; if you want to go to space, you might as well
-                genuinely go to outer space and not hover kind of on the edge of
-                it. Well sit back, and relax because we’ll give you a truly out
-                of this world experience!
-              </p>
-            </div>
+        <div class="row d-none d-md-block space-25"></div>
+        <div class="row d-md-none space-5"></div>
+        <div class="row align-items-center home-hero">
+          <div class="col-xs-12 col-md-6 home-txt-wrapper">
+            <p class="subheading-1 color-2">SO, YOU WANT TO TRAVEL TO</p>
+            <h1 class="title-1">SPACE</h1>
+            <p class="subheading-1 color-2">
+              Let’s face it; if you want to go to space, you might as well
+              genuinely go to outer space and not hover kind of on the edge of
+              it. Well sit back, and relax because we’ll give you a truly out of
+              this world experience!
+            </p>
           </div>
 
-          <div class="col explore-wrapper">
-            <div class="explore">
-              <h4><a href="">EXPLORE</a></h4>
-            </div>
+          <div class="col-xs-12 col-md-6">
+            <h4 class="explore"><a href="" class="color-1">EXPLORE</a></h4>
           </div>
         </div>
       </div>
     </div>
 
     <script src="js/vendors/jquery-3.6.0.js"></script>
+    <script src="js/vendors/bootstrap.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

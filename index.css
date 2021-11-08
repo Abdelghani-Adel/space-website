@@ -1,39 +1,54 @@
+/* ----------------------------------------------------------------------------------- */
 /* ------------------- */
 /* Custom Properties   */
 /* ------------------- */
+/* ----------------------------------------------------------------------------------- */
 :root {
-  /* colors */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
 
-  /* fonts-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: clamp(3.5rem, 4rem, 5rem);
+  --fs-700: clamp(1.5rem, 2.5rem, 3.5rem);
+  --fs-600: clamp(1rem, 1.5rem, 2rem);
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
-  /* font-families */
+
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
+@media (min-width: 540px) {
+  :root {
+    /* --fs-800: 5rem; */
+    /* --fs-700: 2.5rem; */
+    /* --fs-600: 1.5rem; */
+    --fs-400: 1rem;
+  }
+}
+@media (min-width: 720px) {
+  :root {
+    /* --fs-700: 3.5rem; */
+    /* --fs-600: 2rem; */
+    --fs-400: 1.125rem;
+  }
+}
 
+/* ----------------------------------------------------------------------------------- */
 /* ------------------- */
-/* Reset               */
+/*                     */
+/*       RESET         */
+/*                     */
 /* ------------------- */
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
-/* box sizing */
+/* ----------------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-/* reset margins */
 body,
 h1,
 h2,
@@ -61,14 +76,15 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
-/* make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
-/* make forms elements easier to work with */
 input,
 button,
 textarea,
@@ -87,33 +103,62 @@ select {
   }
 }
 
+/* ----------------------------------------------------------------------------------- */
 /* ------------------- */
-/* Utility Classes     */
+/*                     */
+/*   UTILITY CLASSES   */
+/*                     */
 /* ------------------- */
-/* General */
-.flex {
+/* ----------------------------------------------------------------------------------- */
+/* Grid system */
+.d-flex {
   display: flex;
   gap: var(--gap, 1rem);
 }
-.grid {
+.d-grid {
   display: grid;
   gap: var(--gap, 1rem);
 }
-.flex-column {
-  flex-direction: column;
+.d-block {
+  display: block;
 }
 .justify-center {
   justify-content: center;
 }
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+.grid-container {
+  text-align: center;
+  place-items: center;
+  display: grid;
+  padding-inline: 1rem;
+}
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 720px) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(1rem, 1fr);
+  }
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);
-}
-.container {
-  /* padding-inline: 2em; */
-  padding: 0 2em;
-  /* margin-inline: auto; */
-  margin: 0 auto;
-  max-width: 80rem;
 }
 .sr-only {
   position: absolute;
@@ -218,13 +263,17 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-
+/* ----------------------------------------------------------------------------------- */
 /* ------------------- */
-/* componens     */
+/*                     */
+/*     COMPONENTS      */
+/*                     */
 /* ------------------- */
+/* ----------------------------------------------------------------------------------- */
 .large-button {
+  font-size: 2rem;
   position: relative;
-  display: grid;
+  display: inline-grid;
   place-items: center;
   padding: 0 2em;
   aspect-ratio: 1;
@@ -297,4 +346,30 @@ select {
 }
 .dot-indicators > .active {
   background-color: hsl(var(--clr-white) / 1);
+}
+
+/* ------------------- */
+/*                     */
+/*       PAGES         */
+/*                     */
+/* ------------------- */
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+/* home */
+.home {
+  background-image: url(./assets/home/background-home-mobile.jpg);
+}
+@media (min-width: 540px) {
+  .home {
+    background-position: center center;
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 720px) {
+  .home {
+    background-image: url(./assets/home/background-home-desktop.jpg);
+  }
 }

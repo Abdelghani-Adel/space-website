@@ -1,0 +1,31 @@
+/* General */
+.center-wrap {
+  display: inline-grid;
+  text-align: center;
+  place-items: center;
+  padding: 2em;
+  aspect-ratio: 1;
+}
+.border-50 {
+  border-radius: 50%;
+}
+
+/* Grid System */
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: grid;
+}
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline-block;
+}
+
+/*  */
+
+.d-flex.full-flex > * {
+  flex-grow: 1;
+}

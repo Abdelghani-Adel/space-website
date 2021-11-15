@@ -24,7 +24,7 @@ tabs.each((index, element) => {
 function changeTabPanel(e) {
   const targetTab = $(e.currentTarget);
   const tabContainer = targetTab.parent();
-  const num = targetTab.attr("data-num");
+  const jsonReference = targetTab.attr("data-ref");
 
   const planetImg = $("#planet-img");
   const planetName = $("#planet-name");
@@ -38,15 +38,20 @@ function changeTabPanel(e) {
 
   // Changing the content
   $.getJSON("../js/data.json", function (data) {
+    // Filter the JSON Object
+    const result = data["destinations"].find((obj) => {
+      return obj.name == jsonReference;
+    });
+
     // Change the image
-    planetImg.attr("src", data["destinations"][num]["images"]["png"]);
+    planetImg.attr("src", result["images"]["png"]);
     // Change the name
-    planetName.text(data["destinations"][num]["name"]);
+    planetName.text(result["name"]);
     // Change the info
-    planetInfo.text(data["destinations"][num]["description"]);
+    planetInfo.text(result["description"]);
     // Change the distance
-    planetDist.text(data["destinations"][num]["distance"]);
+    planetDist.text(result["distance"]);
     // change the travel time
-    planetTravel.text(data["destinations"][num]["travel"]);
+    planetTravel.text(result["travel"]);
   });
 }

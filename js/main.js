@@ -14,8 +14,8 @@ navToggle.click(() => {
 });
 
 // Tabs
-const tabList = $('[role="tablist"]');
-const tabs = $('[role="tab"]');
+const tabList = $('[role="tablist"]'); //Select buttons wrapper
+const tabs = $('[role="tab"]'); // Select buttons
 
 // tabList.addEventListener("keydown", changeTabFocus);
 tabList.keydown(changeTabFocus);
@@ -57,40 +57,35 @@ function changeTabFocus(e) {
 }
 
 function changeTabPanel(e) {
-  const targetTab = $(e.target);
-  const targetPanel = targetTab.attr("aria-controls");
-  const targetImage = targetTab.attr("data-image");
+  // Variables
+  const targetTab = $(e.target); // Selecting the button
+  const targetPanel = targetTab.attr("aria-controls"); // Selecting the article link
+  const targetImage = targetTab.attr("data-image"); // Selecting the image link
+  const tabContainer = targetTab.parent(); // Selecting buttons container
+  const mainContainer = tabContainer.parent(); // Selecting the wrapper of (buttons - images - articles)
 
-  // const tabContainer = targetTab.parentNode;
-  const tabContainer = targetTab.parent();
-
-  // const mainContainer = tabContainer.parentNode;
-  const mainContainer = tabContainer.parent();
-
-  // tabContainer.querySelector('[aria-selected="true"]').setAttribute("aria-selected", false);
-  // tabContainer.$('[aria-selected="true"]').attr("aria-selected", false);
+  // Change the status of the other active button
+  // Select the current "selected" and make it false
   $(tabContainer).children('[aria-selected="true"]').attr("aria-selected", false);
 
-  targetTab.attr("aria-selected", true);
+  // Change the status of the current clicked button to be selected true
   targetTab.attr("aria-selected", true);
 
+  // Hide all articles
   hideContent(mainContainer, '[role="tabpanel"]');
-  // showContent(mainContainer, [`#${targetPanel}`]);
+  // Show only the current target article
   showContent(mainContainer, `#${targetPanel}`);
 
+  // Hide all images
   hideContent(mainContainer, "picture");
-  // showContent(mainContainer, [`#${targetImage}`]);
+  // Show only the current target image
   showContent(mainContainer, `#${targetImage}`);
 }
 
 function hideContent(parent, content) {
-  // parent.querySelectorAll(content).forEach((item) => item.setAttribute("hidden", true));
-  $(parent)
-    .children(content)
-    .each((index, item) => $(item).attr("hidden", true));
+  $(parent).children(content).attr("hidden", true);
 }
 
 function showContent(parent, content) {
-  // parent.querySelector(content).removeAttribute("hidden");
   $(parent).children(content).removeAttr("hidden");
 }

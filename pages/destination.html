@@ -43,20 +43,20 @@
     <!-- The Image -->
     <picture>
       <!-- <source srcset="../assets/destination/image-moon.webp" type="image/webp"> -->
-      <img id="planet-img" src="../assets/destination/image-moon.png" alt="the moon">
+      <img id="image" src="../assets/destination/image-moon.png" alt="the moon">
     </picture>
     
     
     <!-- buttons -->
-    <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
+    <div class="tab-list underline-indicators flex" role="tablist" data-category="destinations" >
 
-        <button aria-selected="true" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" data-ref="Moon">Moon</button>
+        <button class="uppercase ff-sans-cond text-accent letter-spacing-2" role="tab" data-name="Moon" aria-selected="true">Moon</button>
 
-        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" data-ref="Mars">Mars</button>
+        <button class="uppercase ff-sans-cond text-accent letter-spacing-2" role="tab" data-name="Mars" aria-selected="false">Mars</button>
 
-        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" data-ref="Europa">Europa</button>
+        <button class="uppercase ff-sans-cond text-accent letter-spacing-2" role="tab" data-name="Europa" aria-selected="false">Europa</button>
 
-        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" data-ref="Titan">Titan</button>
+        <button class="uppercase ff-sans-cond text-accent letter-spacing-2" role="tab" data-name="Titan" aria-selected="false">Titan</button>
 
     </div>
 
@@ -64,9 +64,9 @@
     <!-- The Article -->
     <article class="destination-info flow" id="planet-tab" tabindex="0" role="tabpanel">
 
-      <h2 class="fs-800 uppercase ff-serif" id="planet-name">Moon</h2>
+      <h2 class="fs-800 uppercase ff-serif" id="name">Moon</h2>
 
-      <p id="planet-info">See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+      <p id="description">See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
       regain perspective and come back refreshed. While you’re there, take in some history 
       by visiting the Luna 2 and Apollo 11 landing sites.</p>
       

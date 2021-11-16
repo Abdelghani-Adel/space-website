@@ -1,7 +1,9 @@
-// Navigation
+/* /////////////////////////////////////// */
+/* ////////   Navigation Toggle   //////// */
+/* /////////////////////////////////////// */
+
 const nav = $(".primary-navigation");
 const navToggle = $(".mobile-nav-toggle");
-
 navToggle.click(() => {
   const visiblity = nav.attr("data-visible");
   if (visiblity === "false") {
@@ -13,45 +15,46 @@ navToggle.click(() => {
   }
 });
 
-// Tabs
-const tabList = $('[role="tablist"]'); //Select buttons wrapper
-const tabs = $('[role="tab"]'); // Select buttons
+/* ///////////////////////////////////// */
+/* ////////////    Tabs    ///////////// */
+/* ///////////////////////////////////// */
 
+const tabList = $('[role="tablist"]'); // buttons wrapper
+const tabs = $('[role="tab"]'); // buttons
 tabs.each((index, element) => {
-  $(element).click(changeTabPanel);
+  $(element).click(changeTab);
 });
 
-function changeTabPanel(e) {
-  const targetTab = $(e.currentTarget);
-  const tabContainer = targetTab.parent();
-  const jsonReference = targetTab.attr("data-ref");
-
-  const planetImg = $("#planet-img");
-  const planetName = $("#planet-name");
-  const planetInfo = $("#planet-info");
-  const planetDist = $("#planet-dist");
-  const planetTravel = $("#planet-travel");
+// Handler Function
+function changeTab(e) {
+  const clickedButton = $(e.currentTarget); // Select the button
+  const tabContainer = clickedButton.parent(); // buttons wrapper div to used with changing active button
+  const dataCategory = tabList.attr("data-category"); // catogory (dest - crew - tech)
+  const dataName = clickedButton.attr("data-name");
 
   // Change the active button
   $(tabContainer).children('[aria-selected="true"]').attr("aria-selected", false);
-  targetTab.attr("aria-selected", true);
+  clickedButton.attr("aria-selected", true);
 
-  // Changing the content
   $.getJSON("../js/data.json", function (data) {
-    // Filter the JSON Object
-    const result = data["destinations"].find((obj) => {
-      return obj.name == jsonReference;
+    // Filtering The Data
+    const result = data[dataCategory].find((obj) => {
+      return obj.name == dataName;
     });
 
-    // Change the image
-    planetImg.attr("src", result["images"]["png"]);
-    // Change the name
-    planetName.text(result["name"]);
-    // Change the info
-    planetInfo.text(result["description"]);
-    // Change the distance
-    planetDist.text(result["distance"]);
-    // change the travel time
-    planetTravel.text(result["travel"]);
+    // Shared Data
+    $("#image").attr("src", result["images"]["png"]);
+    $("#name").text(result["name"]);
+    $("#description").text(result["description"]);
+
+    try {
+      // Destinations
+      $("#planet-dist").text(result["distance"]);
+      $("#planet-travel").text(result["travel"]);
+      // Crew
+      $("#crew-role").text(result["role"]);
+    } catch (err) {
+      console.log(err);
+    }
   });
 }

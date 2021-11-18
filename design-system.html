@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/index.css" />
 
     <style></style>
   </head>
@@ -114,18 +114,18 @@
           </nav>
         </div>
 
-        <div class="flex">
-          <div style="margin-top: 5rem">
+        <div class="flex flex-stretch-items">
+          <div class="m-auto" style="margin-top: 5rem">
             <!-- explore button -->
-            <a href="#" class="large-button uppercase ff-serif fs-600 text-dark bg-white">Explore</a>
+            <a href="#" class="m-auto large-button uppercase ff-serif fs-600 text-dark bg-white">Explore</a>
           </div>
 
           <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
             <!-- Tabs -->
             <div class="tab-list underline-indicators flex">
-              <button aria-selected="true" class="uppercase ff-sans-cond text-accent letter-spacing-2">Moon</button>
-              <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Mars</button>
-              <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Europa</button>
+              <button aria-selected="true" class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">Moon</button>
+              <button aria-selected="false" class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">Mars</button>
+              <button aria-selected="false" class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">Europa</button>
             </div>
 
             <!-- Dots -->
@@ -136,6 +136,12 @@
             </div>
 
             <!-- Numbers -->
+
+            <div class="flex flex-column number-indicators tab-list">
+              <button class="fs-600 center-wrap border-50" aria-selected="true">1</button>
+              <button class="fs-600 center-wrap border-50" aria-selected="false">2</button>
+              <button class="fs-600 center-wrap border-50" aria-selected="false">3</button>
+            </div>
           </div>
         </div>
       </section>

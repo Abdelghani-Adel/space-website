@@ -42,13 +42,47 @@
   gap: var(--gap, 1rem);
 }
 
+.d-inline-f {
+  display: inline-flex;
+}
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
 }
 
+.d-inline-g {
+  display: inline-grid;
+}
+
 .d-block {
   display: block;
+}
+
+.d-inline-b {
+  display: inline-block;
+}
+
+.flex-stretch-items > * {
+  flex-grow: 1;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .flow > * + * {
@@ -56,41 +90,13 @@
 }
 
 .flow--space-small {
-  --flow-space: 0.75rem;
+  --flow-space: 0.6rem;
 }
 
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  /* added line */
-  border: 0;
-}
-
-.skip-to-content {
-  position: absolute;
-  z-index: 9999;
-  background: hsl(var(--clr-white));
-  color: hsl(var(--clr-dark));
-  padding: 0.5em 1em;
-  margin-inline: auto;
-  transform: translateY(-100%);
-  transition: transform 250ms ease-in;
-}
-
-.skip-to-content:focus {
-  transform: translateY(0);
 }
 
 /* colors */
@@ -197,6 +203,46 @@
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-white)/0.25);
+}
+
+.center-wrap {
+  display: inline-grid;
+  text-align: center;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.border-50 {
+  border-radius: 50%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
 }
 
 *,
@@ -438,6 +484,24 @@ select {
   background-color: hsl(var(--clr-white)/1);
 }
 
+.number-indicators > * {
+  cursor: pointer;
+  border: 1px solid hsl(var(--clr-white)/0.25);
+  background-color: transparent;
+  color: white;
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+  background-color: hsl(var(--clr-white)/0.5);
+  border: 1px solid hsl(var(--clr-white)/0.5);
+}
+
+.number-indicators > [aria-selected=true] {
+  background-color: hsl(var(--clr-white)/1);
+  color: hsl(var(--clr-dark)/1);
+}
+
 .tab-list {
   --gap: 2rem;
 }
@@ -447,7 +511,6 @@ body {
   background-position: bottom center;
 }
 
-/* home */
 .home {
   background-image: url(../assets/home/background-home-mobile.jpg);
 }
@@ -458,6 +521,10 @@ body {
 
 .crew {
   background-image: url(../assets/home/background-crew-mobile.jpg);
+}
+
+.technology {
+  background-image: url(../assets/technology/background-technology-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
@@ -475,6 +542,10 @@ body {
     background-position: center center;
     background-image: url(../assets/crew/background-crew-tablet.jpg);
   }
+
+  .technology {
+    background-image: url(../assets/technology/background-technology-tablet.jpg);
+  }
 }
 @media (min-width: 45rem) {
   .home {
@@ -487,6 +558,10 @@ body {
 
   .crew {
     background-image: url(../assets/crew/background-crew-desktop.jpg);
+  }
+
+  .technology {
+    background-image: url(../assets/technology/background-technology-desktop.jpg);
   }
 }
 .grid-container {
@@ -560,6 +635,27 @@ body {
   color: hsl(var(--clr-white)/0.5);
 }
 
+.grid-container--technology {
+  padding-inline: 0;
+  grid-template-areas: "title" "image" "tabs" "content";
+}
+
+.grid-container--technology > h1 {
+  grid-area: title;
+}
+
+.grid-container--technology > .number-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--technology > .content {
+  grid-area: content;
+}
+
+.grid-container--technology > picture {
+  grid-area: image;
+}
+
 @media (min-width: 35em) {
   .numbered-title {
     justify-self: start;
@@ -621,5 +717,15 @@ body {
     grid-column: span 2;
     align-self: end;
     max-width: 90%;
+  }
+
+  .grid-container--technology {
+    grid-template-columns: 1fr 60px minmax(10px, 30px) 30rem 1fr max-content;
+    grid-template-areas: "title" "image" "tabs" "content";
+    grid-template-areas: ". title title title . ." ". tabs . content . image" ". tabs . content . image";
+  }
+
+  .number-indicators {
+    flex-direction: column;
   }
 }
